@@ -16,8 +16,8 @@ createApp({
 
       apiUrl: 'https://flynn.boolean.careers/exercises/api/random/mail',
       limit: 10,
-      emails: []
-
+      emails: [],
+      isLoaded: false
 
     }
   },
@@ -32,6 +32,7 @@ createApp({
         .then(result => {
           const email = result.data.response;
           this.emails.push(email);
+          if(this.emails.length === this.limit) this.isLoaded = !this.isLoaded;
         })
         .catch(error => {
           const email = 'error';
@@ -39,7 +40,7 @@ createApp({
         })
 
       }
-
+      
     }
 
 

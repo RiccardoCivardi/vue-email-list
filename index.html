@@ -25,13 +25,20 @@
 
     <h1>STAMPO 10 EMAIL TRAMITE API</h1>
 
-    <ul>
+    <ul v-if="isLoaded">
 
       <li 
        v-for="(email, index) in emails"
-      >{{index}}: {{email}}</li>
+      >{{index + 1}}: {{email}}</li>
 
     </ul>
+    
+    <!-- LOADER -->
+    <div
+     v-else
+     class="lds-ellipsis">
+      <div></div><div></div><div></div><div></div>
+    </div>
 
   </div>
   
